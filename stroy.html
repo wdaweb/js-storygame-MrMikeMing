@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>stroy</title>
+    <script src="js/sweetalert2.all.min.js"></script>
+    <style>
+    body{
+        margin: 0;
+        padding: 0  ;
+        background-image: url('img/b.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position:center;
+        
+    }
+   
+    #btn{
+        border:0;
+        background-color:#003C9D;
+        color:#fff;
+        border-radius:10px;
+        cursor:pointer;
+        position:absolute; 
+        left: 46%;
+       
+    }
+
+    #btn:hover{
+        color:#003C9D;
+        background-color:#fff;
+        border:2px #003C9D solid;
+            }
+    </style>
+</head>
+<body>
+    <input type="button" value="按我開始遊戲"  id="btn" style="width:150px;height:50px;">
+
+    <script>
+    var youname;
+    var getbtn = document.getElementById("btn");
+    getbtn.addEventListener("click", show);
+    function show(){
+        Swal.fire({
+            title:'取個名子好打老虎',
+            input:'text',
+            inputValue:'9527',
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "今後叫我這名",
+            cancelButtonText: '無聊',
+            showCancelButton: true,
+            allowOutsideClick: false,
+        }).then((result)=>{
+    if(result.dismiss ==='cancel'){
+        youname = "老屁股";
+            Swal.fire({
+            title: '什麼叫無聊我不懂?看你皮癢是不是?你就叫'+youname+'吧，沒時間跟你蝦攪和',
+            allowOutsideClick: false,
+            imageUrl: 'img/2.jpg',
+            imageHeight: 400
+            }).then(part1);
+             }
+    else{
+        youname = result.value;
+        Swal.fire({
+        title: '官員:'+youname+'今晚聽我的就對了',
+        text: '準備好你的大棒棒....',
+        allowOutsideClick: false,
+        imageUrl: 'img/3.jpg',
+        imageHeight: 400
+      }).then(part1);
+    }
+    });
+}
+    function part1(){
+        Swal.fire({
+            title:'第一樓---官員:跟我上樓'+youname+'，帶你給公主看看你行不行',
+            text: '旁白:在一個夜黑風高的夜晚，滿月正圓高掛天邊，彷彿聽見野獸的呢喃聲，瀰漫不祥的氣息瀰漫在這昏暗的春花樓裡....',
+            imageUrl: 'img/10.jpg',
+            imageHeight: 400,
+            allowOutsideClick: false,
+            confirmButtonText: '提起火把前進',
+            cancelButtonText: '還是改天吧..',//紅按鈕
+            cancelButtonColor: "#DD6B55",
+            showCancelButton: true
+        }).then((result)=>{
+            if(result.dismiss === 'cancel'){//紅按鈕
+                Swal.fire({
+                title: youname+'那你回去洗洗睡吧',
+                text: '官員:真是可惜阿，公主可是大美人啊',
+                allowOutsideClick: false,
+                imageUrl: 'img/6.jpg',
+                imageHeight: 400
+            }).then(part1);
+            }
+            else {
+                Swal.fire({
+                title: youname+'你是公主新來的貼身護衛，今晚可要站哨，但....',
+                text: '見官員說到一半，像是若有其事把話吞了回去',
+                confirmButtonText: '似曾相似的感覺...',
+                allowOutsideClick: false,
+                imageUrl: 'img/9.jpg',
+                imageHeight: 400
+                }).then (function part2(){
+                Swal.fire({
+                    title:'第二樓---一位女子尖叫吶喊的聲音，像是頂樓傳來',
+                    text: '這聲音是!!!!!公主!!!我來來了~官員吶喊奔上樓，你選擇????',
+                    imageUrl: 'img/7.jpg',
+                    imageHeight: 400,
+                    allowOutsideClick: false,
+                    confirmButtonText: '去樓下尋找幫手',
+                    cancelButtonText: '衝上幫助官員!',//紅按鈕
+                    cancelButtonColor: "#DD6B55",
+                    showCancelButton: true
+                    }).then((result)=>{
+                            if(result.dismiss !== 'cancel'){
+                            Swal.fire({
+                            title: youname+'你與夥伴到達時,官員與公主只剩下殘骸',
+                            text: youname+'被大家狠狠斥責沒判斷好狀況，似乎只想把罪狀推到你身上，人心險惡，並且被國王驅離村莊',
+                            allowOutsideClick: false,
+                            imageUrl: 'img/8.jpg',
+                            confirmButtonText: '使用回朔符咒!',
+                            imageHeight: 400
+                            }).then(part2);
+                            }
+                            else
+                            {
+                            Swal.fire({//紅按鈕
+                            title: youname+'與官員三點式著地抵達現場..',
+                            text: '看見公主被大蛇纏身，大蛇聽見聲音轉向藐視'+youname+'與官員',
+                            allowOutsideClick: false,
+                            imageUrl: 'img/12.jpg',
+                            confirmButtonText: '拿巨棒衝向大蛇',
+                            imageHeight: 400
+                            }).then (function part3(){
+                                Swal.fire({
+                                    title:youname+'的戰鬥---滿身是大蛇咬傷的痕跡，而官員少了一隻手臂',
+                                    text: '官員用最後的力氣插瞎大蛇，而大蛇卻一口咬中官員的胸膛，讓大蛇也因此露出了破綻..',
+                                    imageUrl: 'img/14.jpg',
+                                    imageHeight: 400,
+                                    allowOutsideClick: false,
+                                    confirmButtonText: '先救了公主再說!',
+                                    cancelButtonText: '毫不猶豫上前敲死大蛇',//紅按鈕
+                                    cancelButtonColor: "#DD6B55",
+                                    showCancelButton: true
+                                     }).then((result)=>{
+                             if(result.dismiss === 'cancel'){
+                                    Swal.fire({
+                                    title: '大蛇滿眼血光，嗜血狂暴的瘋狂狀態',
+                                    text: '就在那一瞬間你看見大蛇眼中的人生跑馬燈，兩人在一瞬間被大蛇終結',
+                                    allowOutsideClick: false,
+                                    imageUrl: 'img/11.jpg',
+                                    confirmButtonText: '靈魂進入平行宇宙',
+                                    imageHeight: 400
+                                    }).then(part1);
+                            }
+                                else
+                                {
+                                Swal.fire({//紅按鈕
+                                title: '勝利---救下公主後，滅妖87柱全員到齊，亂棒敲死大蛇',
+                                text: '感動的公主瘋狂想以身相許給'+youname+'並且國王感激到腦袋壞掉，送你鎮國之寶',
+                                allowOutsideClick: false,
+                                imageUrl: 'img/13.jpg',
+                                confirmButtonText: '接受',
+                                imageHeight: 400
+                                }).then (function part4(){
+                                Swal.fire({
+                                    title:'來到官員墓前',
+                                    text: '發現兩封沒密封的信，好像被打開過的一樣',
+                                    imageUrl: 'img/15.jpg',
+                                    imageHeight: 400,
+                                    allowOutsideClick: false,
+                                    confirmButtonText: '打這不屬於我的',
+                                    cancelButtonText: '開看看',//紅按鈕
+                                    cancelButtonColor: "#DD6B55",
+                                    showCancelButton: true
+                                     }).then((result)=>{
+                             if(result.dismiss !== 'cancel'){
+                                    Swal.fire({//紅按鈕
+                                    title: '回城享受榮華富貴1個月後....',
+                                    text: '突然而來的群妖魔血洗王都，你與王國人無一倖存',
+                                    allowOutsideClick: false,
+                                    imageUrl: 'img/16.jpg',
+                                    confirmButtonText: '靈魂進入平行宇宙',
+                                    imageHeight: 400
+                                    }).then(part3);
+                            }
+                                else
+                                {
+                                    Swal.fire({
+                                    title: '任務與家人信函',
+                                    text: '讀取信件後發現，任務信函的求救地點，居然跟官員家人的家鄉一樣!!!!',
+                                    allowOutsideClick: false,
+                                    imageUrl: 'img/18.jpg',
+                                    confirmButtonText: '立即前往!!!',
+                                    imageHeight: 400
+                                    }).then (function part5(){
+                                     Swal.fire({
+                                    title:'報恩',
+                                    text: '告知王國後，幾個請求跟隨著你的滅妖高手一同前往官員家鄉探勘',
+                                    imageUrl: 'img/19.jpg',
+                                    imageHeight: 400,
+                                    allowOutsideClick: false,
+                                    confirmButtonText: '跟我來吧夥伴們',
+                                    cancelButtonText: '不用，你們留下',//紅按鈕
+                                    cancelButtonColor: "#DD6B55",
+                                    showCancelButton: true
+                                     }).then((result)=>{
+                             if(result.dismiss === 'cancel'){
+                                    Swal.fire({//紅按鈕
+                                    title: '把妻子託付給高手們照顧',
+                                    text: '出發後發現..奇怪??背包多了一頂綠帽子.....?!.',
+                                    allowOutsideClick: false,
+                                    imageUrl: 'img/20.jpg',
+                                    confirmButtonText: '再玩1次吧爛結局',
+                                    imageHeight: 400
+                                    }).then(function () {
+                                      f_1();
+                                    });
+                            }
+                                else
+                                {
+                                    Swal.fire({
+                                    title: '與夥伴展開冒險的旅程',
+                                    text: 'jmub連載中...',
+                                    allowOutsideClick: false,
+                                    imageUrl: 'img/24.jpg',
+                                    confirmButtonText: '本季完結',
+                                    imageHeight: 400
+                                }).then(function () {
+                                      f_2();
+                                    });
+
+                            }
+                            });
+                            });
+                                
+                }
+                });
+                });
+
+
+            }
+            });
+            });
+        }
+        });
+        });
+    }
+    });
+     
+}
+
+function f_1() {
+
+    document.body.style.backgroundImage = "url('img/2.jpg')";
+
+  }
+function f_2() {
+
+    document.body.style.backgroundImage = "url('img/26.jpg')";
+
+  }
+
+  
+    </script>
+
+
+
+
+
+</body>
+</html>
